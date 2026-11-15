@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dallfslitpina"]
+
+[ext_resource type="Script" uid="uid://cre1wect22pj1" path="res://Scenes/Sfx.gd" id="1_a0u1m"]
+[ext_resource type="AudioStream" uid="uid://nptiukmv34nt" path="res://Assets/audio_assets/Hitting Wall.mp3" id="2_ycbqo"]
+[ext_resource type="AudioStream" uid="uid://ctfd5krwwgndf" path="res://Assets/audio_assets/Enemy Shooting.mp3" id="3_ycbqo"]
+[ext_resource type="AudioStream" uid="uid://dnx2fgslfed3" path="res://Assets/audio_assets/hurt1_sfx.wav" id="4_ivd03"]
+[ext_resource type="AudioStream" uid="uid://ds75luhkps68d" path="res://Assets/audio_assets/bubbles_sfx.wav" id="5_14lcj"]
+[ext_resource type="AudioStream" uid="uid://bp1hjst4ko2fg" path="res://Assets/audio_assets/Select Upgrade.mp3" id="6_em1ey"]
+[ext_resource type="AudioStream" uid="uid://dhfyvwg3pd0e" path="res://Assets/audio_assets/glass_shatter_bang_sfx.wav" id="7_em1ey"]
+
+[node name="sfx" type="Node" unique_id=1937152804]
+script = ExtResource("1_a0u1m")
+
+[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1900625314]
+stream = ExtResource("2_ycbqo")
+
+[node name="die" type="AudioStreamPlayer" parent="." unique_id=14034586]
+stream = ExtResource("3_ycbqo")
+
+[node name="hurt" type="AudioStreamPlayer" parent="." unique_id=63857478]
+stream = ExtResource("4_ivd03")
+
+[node name="heal" type="AudioStreamPlayer" parent="." unique_id=398916237]
+stream = ExtResource("5_14lcj")
+
+[node name="upgrade" type="AudioStreamPlayer" parent="." unique_id=426384609]
+stream = ExtResource("6_em1ey")
+
+[node name="glass" type="AudioStreamPlayer" parent="." unique_id=420447470]
+stream = ExtResource("7_em1ey")

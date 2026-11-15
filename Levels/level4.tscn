@@ -86,6 +86,22 @@ script = ExtResource("1_nanxr")
 metadata/_edit_horizontal_guides_ = [85.0, 85.0, 657.0]
 metadata/_edit_vertical_guides_ = [148.0, 1133.0]
 
+[node name="Background" type="ColorRect" parent="." unique_id=1723129899]
+z_index = -14
+offset_left = -54.0
+offset_top = -55.0
+offset_right = 1318.0
+offset_bottom = 734.0
+color = Color(0, 0, 0, 1)
+
+[node name="Table" type="ColorRect" parent="." unique_id=1153380894]
+z_index = -14
+offset_left = 116.0
+offset_top = 55.0
+offset_right = 1165.0
+offset_bottom = 734.0
+color = Color(0.25, 0.19, 0.1375, 1)
+
 [node name="PoolTable" type="TextureRect" parent="." unique_id=1379057274]
 z_index = -10
 texture_filter = 1
@@ -144,7 +160,7 @@ offset_right = 1003.0
 offset_bottom = 205.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_btbpw")
-text = "END OF LEVEL 1
+text = "END OF LEVEL 4
 
 [enter] to proceed"
 horizontal_alignment = 1
@@ -174,4 +190,5 @@ script = ExtResource("9_g4w76")
 libraries/ = SubResource("AnimationLibrary_f4ugn")
 
 [connection signal="finished" from="intro" to="." method="_on_intro_finished"]
+[connection signal="finished" from="loop" to="." method="_on_loop_finished"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -35,13 +35,14 @@ func _on_body_entered(body: Node) -> void:
 		lose_health(1)
 		Game.hit_stop(0.1)
 		
-	if state == "ram" and body.TOKEN_ID == "Player":
+	if state == "ram":
 		can_get_hit = false
 		$InvincibilityTimer.start()
 		$AnimationPlayer.play("RESET")
 		$RushTimer.stop()
 		state = "idle"
-		Game.lose_health(30)
+		if body.TOKEN_ID == "Player":
+			Game.lose_health(30)
 		$IdleTimer.start()
 		
 

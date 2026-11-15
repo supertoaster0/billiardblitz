@@ -87,6 +87,22 @@ TargetScene = ExtResource("2_aunfx")
 metadata/_edit_horizontal_guides_ = [85.0, 85.0, 657.0]
 metadata/_edit_vertical_guides_ = [148.0, 1133.0]
 
+[node name="Background" type="ColorRect" parent="." unique_id=150705212]
+z_index = -14
+offset_left = -54.0
+offset_top = -55.0
+offset_right = 1318.0
+offset_bottom = 734.0
+color = Color(0, 0, 0, 1)
+
+[node name="Table" type="ColorRect" parent="." unique_id=546059176]
+z_index = -14
+offset_left = 116.0
+offset_top = 55.0
+offset_right = 1165.0
+offset_bottom = 734.0
+color = Color(0.25, 0.19, 0.1375, 1)
+
 [node name="PoolTable" type="TextureRect" parent="." unique_id=1379057274]
 z_index = -10
 texture_filter = 1
@@ -149,6 +165,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="levelindicator" type="Label" parent="." unique_id=1880109338]
+z_index = 5
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -172,4 +189,5 @@ script = ExtResource("8_j32wv")
 libraries/ = SubResource("AnimationLibrary_pdma0")
 
 [connection signal="finished" from="intro" to="." method="_on_intro_finished"]
+[connection signal="finished" from="loop" to="." method="_on_loop_finished"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

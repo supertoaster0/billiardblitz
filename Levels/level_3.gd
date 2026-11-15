@@ -14,6 +14,7 @@ var dead_enemies := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Game.RESET()
 	$Victory.hide()
 	order.shuffle()
 	intro.play()
@@ -67,3 +68,7 @@ func spawn_8ball():
 func reset_timer():
 	$SpawnTimer.start()
 	$SpawnTimer.wait_time = randf_range(5, 12)
+
+
+func _on_loop_finished() -> void:
+	$loop.play()

@@ -252,12 +252,12 @@ libraries/ = SubResource("AnimationLibrary_niy18")
 autoplay = &"RESET"
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=1899894206]
-wait_time = 3.0
+wait_time = 6.0
 one_shot = true
 autostart = true
 
 [node name="WindTimer" type="Timer" parent="." unique_id=1286005445]
-wait_time = 1.2
+wait_time = 1.5999999999999999
 one_shot = true
 
 [node name="RushTimer" type="Timer" parent="." unique_id=324156183]

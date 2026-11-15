@@ -39,7 +39,7 @@ func look_at_player():
 
 func _on_body_entered(body: Node) -> void:
 	if body.TOKEN_ID == "Player" and body.linear_velocity.length() > 120:
-		lose_health(1)
+		lose_health(Game.ATK_POWER)
 		state = "normal"
 		Game.hit_stop(0.1)
 

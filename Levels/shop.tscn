@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bi4nlpdnlpb27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awwja"]
+bg_color = Color(0, 0, 0, 0.6862745)
+
+[node name="Shop" type="Node" unique_id=1586437901]
+
+[node name="Panel" type="Panel" parent="." unique_id=1155256175]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_awwja")
