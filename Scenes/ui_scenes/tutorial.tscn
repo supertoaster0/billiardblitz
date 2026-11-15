@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://532s87yq0qpo"]
+
+[ext_resource type="Texture2D" uid="uid://crqdbgvppdegu" path="res://Assets/bg_assets/Tutorial.png" id="1_2uym4"]
+[ext_resource type="Script" uid="uid://cw6eqnm1ma8r2" path="res://Scenes/ui_scenes/tutorial.gd" id="1_3x7q3"]
+[ext_resource type="FontFile" uid="uid://dv2pscrosiun4" path="res://Assets/PixelOperator8.ttf" id="2_v53gc"]
+
+[node name="Tutorial" type="Node" unique_id=135249502]
+script = ExtResource("1_3x7q3")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1269049730]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2uym4")
+
+[node name="Button" type="Button" parent="." unique_id=1744488047]
+offset_left = 788.0
+offset_top = 91.0
+offset_right = 1148.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("2_v53gc")
+theme_override_font_sizes/font_size = 32
+text = "< back to menu"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
