@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dgeom3xqe371e"]
+
+[ext_resource type="Texture2D" uid="uid://db3y6lg5oqarj" path="res://Assets/player_assets/shadow_ellipse.png" id="1_exfu0"]
+[ext_resource type="Script" uid="uid://b0glfy67nv8qg" path="res://Scenes/hazard_scenes/heart.gd" id="1_km2hn"]
+[ext_resource type="Texture2D" uid="uid://bs0ct2omdk0a0" path="res://Assets/hazard_assets/big_heart.png" id="2_km2hn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awwja"]
+radius = 42.201897
+
+[node name="Heart" type="Area2D" unique_id=1659958540]
+script = ExtResource("1_km2hn")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=230614537]
+modulate = Color(1, 1, 1, 0.56078434)
+position = Vector2(0, 26)
+scale = Vector2(3, 3)
+texture = ExtResource("1_exfu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=159085845]
+position = Vector2(0, -15)
+scale = Vector2(3, 3)
+texture = ExtResource("2_km2hn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1546066795]
+shape = SubResource("CircleShape2D_awwja")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

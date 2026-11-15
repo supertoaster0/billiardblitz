@@ -37,9 +37,16 @@ git commit -m "Commit name"
 git push
 """
 
+func _ready() -> void:
+	#FULLRESET()
+	level = 1
+
 func lose_health(damage):
 	Sfx.play_sound("Hurt")
 	HEALTH -= damage
+	if "Parry" in picked_upgrades:
+		STAMINA += 0.5
+		STAMINA = min(1, STAMINA)
 	if HEALTH <= 0:
 		print("GAMEOVER")
 		

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://5tgkwqt6hn47"]
+
+[ext_resource type="Script" uid="uid://cf1imkugxabwo" path="res://Scenes/hazard_scenes/explosion.gd" id="1_ref6v"]
+
+[sub_resource type="Curve" id="Curve_awwja"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.41735542, 0.7899159), 0.0, 0.0, 0, 0, Vector2(0.5578513, 0), -2.4102085, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_hpu63"]
+offsets = PackedFloat32Array(0, 0.52463055, 0.9876847)
+colors = PackedColorArray(1, 1, 1, 1, 0.63, 0.63, 0.63, 1, 0.22, 0.22, 0.22, 1)
+
+[sub_resource type="Curve" id="Curve_3c16j"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awwja"]
+radius = 97.32934
+
+[node name="Explosion" type="Area2D" unique_id=1023407463]
+script = ExtResource("1_ref6v")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=945939206]
+emitting = false
+amount = 54
+lifetime = 0.42
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 436.5
+initial_velocity_max = 682.54
+scale_amount_min = 15.0
+scale_amount_max = 18.0
+scale_amount_curve = SubResource("Curve_awwja")
+color_ramp = SubResource("Gradient_hpu63")
+hue_variation_curve = SubResource("Curve_3c16j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=466726814]
+shape = SubResource("CircleShape2D_awwja")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

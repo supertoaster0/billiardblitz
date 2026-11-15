@@ -45,7 +45,9 @@ func _on_body_entered(body: Node) -> void:
 		if body.TOKEN_ID == "Player":
 			Game.lose_health(30 + Game.DAMAGE_RECEIVE)
 		$IdleTimer.start()
-		
+	
+	if body.TOKEN_ID == "Enemy" and "ChainReaction" in Game.picked_upgrades:
+		body.lose_health(1)
 
 func _on_body_exited(body: Node) -> void:
 	pass # Replace with function body.
