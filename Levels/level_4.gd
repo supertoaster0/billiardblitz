@@ -35,10 +35,17 @@ func _on_spawn_timer_timeout() -> void:
 		reset_timer()
 
 func _process(delta: float) -> void:
+<<<<<<< Updated upstream
+=======
+	if "HelpingHand" in Game.picked_upgrades:
+		heart_timer += delta
+	if heart_timer >= 6:
+		heart_timer = 0.0
+		spawn_heart()
+>>>>>>> Stashed changes
 	if dead_enemies >= 1:
 		$Victory.show()
-		if Input.is_action_just_pressed("enter"):
-			get_tree().change_scene_to_file("res://Levels/shop.tscn")
+		get_tree().change_scene_to_file("res://Scenes/ui_scenes/winscreen.tscn")
 
 func spawn_red():
 	var target = red.instantiate()
