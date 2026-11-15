@@ -31,7 +31,7 @@ func _on_spawn_timer_timeout() -> void:
 	elif order[number] == "B":
 		spawn_blue()
 	number += 1
-	if number < 6:
+	if number < 1:
 		reset_timer()
 
 func _process(delta: float) -> void:

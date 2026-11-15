@@ -33,7 +33,7 @@ func _on_spawn_timer_timeout() -> void:
 	elif order[number] == "K":
 		spawn_8ball()
 	number += 1
-	if number < 8:
+	if number < 1:
 		reset_timer()
 
 func _process(delta: float) -> void:
@@ -44,8 +44,7 @@ func _process(delta: float) -> void:
 		spawn_heart()
 	if dead_enemies >= 8:
 		$Victory.show()
-		if Input.is_action_just_pressed("enter"):
-			get_tree().change_scene_to_file("res://Levels/shop.tscn")
+		get_tree().change_scene_to_file("res://Scenes/ui_scenes/winscreen.tscn")
 
 func spawn_red():
 	var target = red.instantiate()

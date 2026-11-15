@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d37mshm77owcw"]
 
 [ext_resource type="Script" uid="uid://bo6aj88p2058m" path="res://gameover.gd" id="1_ydnxx"]
-[ext_resource type="Texture2D" uid="uid://6fms4qfsc8wk" path="res://Assets/bg_assets/pooltable.png" id="2_xjbtu"]
+[ext_resource type="Texture2D" uid="uid://118iaqg4q66x" path="res://Assets/bg_assets/pooltabledark.png" id="2_ydnxx"]
 [ext_resource type="Texture2D" uid="uid://bj2k8dqnxwy4i" path="res://Assets/player_assets/deadplayer.png" id="3_krejq"]
 [ext_resource type="FontFile" uid="uid://b7i0luhsfknpb" path="res://Assets/PixelOperator8-Bold.ttf" id="4_5bawo"]
 [ext_resource type="FontFile" uid="uid://dv2pscrosiun4" path="res://Assets/PixelOperator8.ttf" id="5_320mr"]
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_xjbtu")
+texture = ExtResource("2_ydnxx")
 
 [node name="player" type="TextureRect" parent="." unique_id=2034173836]
 layout_mode = 0
@@ -56,5 +56,7 @@ theme_override_fonts/font = ExtResource("5_320mr")
 theme_override_font_sizes/font_size = 32
 text = "< back to menu"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1842916467]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
