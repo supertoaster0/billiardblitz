@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://5q4vi2dp6alt"]
 
 [ext_resource type="Script" uid="uid://bug0sgheqmbax" path="res://Scenes/ui_scenes/mainmenu.gd" id="1_evpmn"]
-[ext_resource type="Texture2D" uid="uid://b16a622y7oqxc" path="res://Assets/bg_assets/Title_Screen_Background.webp" id="2_ao1d7"]
+[ext_resource type="Texture2D" uid="uid://dp6b57hvwt5yo" path="res://Assets/bg_assets/mainmenubg.webp" id="2_ao1d7"]
 [ext_resource type="Texture2D" uid="uid://m0p8v1vha33r" path="res://Assets/bg_assets/PLAY_Button.webp" id="3_nk8hp"]
 [ext_resource type="Texture2D" uid="uid://d4kbok8feym5" path="res://Assets/bg_assets/EXIT_Button.webp" id="4_mwevs"]
 [ext_resource type="Texture2D" uid="uid://dhxxrjqtfl77v" path="res://Assets/bg_assets/TUTORIAL_BUTTON.png" id="5_ao1d7"]
@@ -32,11 +32,13 @@ texture = ExtResource("2_ao1d7")
 
 [node name="PLAY" type="Button" parent="." unique_id=1027442822]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 331.0
-offset_right = 758.0
-offset_bottom = 392.0
+offset_left = 646.0
+offset_top = 301.0
+offset_right = 891.0
+offset_bottom = 362.0
+scale = Vector2(0.7378831, 0.7378831)
 flat = true
+metadata/_edit_group_ = true
 
 [node name="play" type="TextureRect" parent="PLAY" unique_id=414460352]
 layout_mode = 0
@@ -50,11 +52,13 @@ stretch_mode = 4
 
 [node name="EXIT" type="Button" parent="." unique_id=698366782]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 496.0
-offset_right = 758.0
-offset_bottom = 557.0
+offset_left = 646.0
+offset_top = 419.99997
+offset_right = 891.0
+offset_bottom = 480.99997
+scale = Vector2(0.7378831, 0.7378831)
 flat = true
+metadata/_edit_group_ = true
 
 [node name="exit" type="TextureRect" parent="EXIT" unique_id=305379955]
 layout_mode = 0
@@ -68,11 +72,13 @@ stretch_mode = 4
 
 [node name="TUTORIAL" type="Button" parent="." unique_id=487404650]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 413.0
-offset_right = 758.0
-offset_bottom = 474.0
+offset_left = 646.0
+offset_top = 359.99997
+offset_right = 891.0
+offset_bottom = 420.99997
+scale = Vector2(0.7378831, 0.7378831)
 flat = true
+metadata/_edit_group_ = true
 
 [node name="exit" type="TextureRect" parent="TUTORIAL" unique_id=570193352]
 layout_mode = 0
