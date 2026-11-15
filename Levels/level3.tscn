@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://vmxshuwstwd8"]
 
 [ext_resource type="Script" uid="uid://dv4hat2ib73g4" path="res://Levels/level_3.gd" id="1_vr4rd"]
-[ext_resource type="Texture2D" uid="uid://bw78ust5fwprd" path="res://Assets/bg_assets/redpooltable.png" id="2_vr4rd"]
+[ext_resource type="Texture2D" uid="uid://118iaqg4q66x" path="res://Assets/bg_assets/pooltabledark.png" id="2_2cw1i"]
 [ext_resource type="PackedScene" uid="uid://8p7jecejhyag" path="res://Scenes/player_scenes/player.tscn" id="3_ltsrt"]
 [ext_resource type="Script" uid="uid://brqtt3m7f865t" path="res://trigger.gd" id="4_2jaon"]
 [ext_resource type="PackedScene" uid="uid://bgrbe7fvuhial" path="res://Scenes/ui_scenes/ui.tscn" id="5_2cw1i"]
@@ -109,7 +109,7 @@ offset_left = 122.0
 offset_top = 60.0
 offset_right = 1158.6666
 offset_bottom = 682.0
-texture = ExtResource("2_vr4rd")
+texture = ExtResource("2_2cw1i")
 
 [node name="Player" parent="." unique_id=1103906664 instance=ExtResource("3_ltsrt")]
 position = Vector2(640, 360)

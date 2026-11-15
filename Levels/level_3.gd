@@ -31,11 +31,11 @@ func _on_spawn_timer_timeout() -> void:
 	elif order[number] == "K":
 		spawn_8ball()
 	number += 1
-	if number < 6:
+	if number < 1:
 		reset_timer()
 
 func _process(delta: float) -> void:
-	if dead_enemies >= 6:
+	if dead_enemies >= 1:
 		$Victory.show()
 		if Input.is_action_just_pressed("enter"):
 			get_tree().change_scene_to_file("res://Levels/shop.tscn")

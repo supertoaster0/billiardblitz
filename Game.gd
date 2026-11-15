@@ -7,7 +7,7 @@ var SPEED := 3.2
 var RANGE := 260
 var ATK_POWER := 1
 var RESILIENCE := 2.0
-var HEALTH := 10:
+var HEALTH := 100:
 	set(value):
 		if value <= 0:
 			await get_tree().create_timer(0.2).timeout

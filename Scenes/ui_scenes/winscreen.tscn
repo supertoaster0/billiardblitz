@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dlsomx07awq7s"]
+
+[ext_resource type="Script" uid="uid://cxm5bevb15jh7" path="res://winscreen.gd" id="1_ypkws"]
+[ext_resource type="Texture2D" uid="uid://6fms4qfsc8wk" path="res://Assets/bg_assets/pooltable.png" id="2_6n770"]
+[ext_resource type="Texture2D" uid="uid://bujjyd8kyegvc" path="res://Assets/player_assets/happyplayer.png" id="3_3p8pc"]
+[ext_resource type="FontFile" uid="uid://b7i0luhsfknpb" path="res://Assets/PixelOperator8-Bold.ttf" id="4_wc8wc"]
+[ext_resource type="FontFile" uid="uid://dv2pscrosiun4" path="res://Assets/PixelOperator8.ttf" id="5_wpyrd"]
+
+[node name="winscreen" type="Control" unique_id=825757742]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ypkws")
+
+[node name="bg" type="TextureRect" parent="." unique_id=1600526537]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6n770")
+
+[node name="hapi playa yey" type="TextureRect" parent="." unique_id=1319099052]
+layout_mode = 0
+offset_left = 738.0
+offset_top = 271.0
+offset_right = 1099.0
+offset_bottom = 613.0
+texture = ExtResource("3_3p8pc")
+
+[node name="Label" type="Label" parent="." unique_id=193318883]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 190.0
+offset_right = 624.0
+offset_bottom = 530.0
+theme_override_fonts/font = ExtResource("4_wc8wc")
+theme_override_font_sizes/font_size = 128
+text = "YOU
+WIN!"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="backtomenu" type="Button" parent="." unique_id=407175382]
+layout_mode = 0
+offset_left = 739.0
+offset_top = 213.0
+offset_right = 1099.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("5_wpyrd")
+theme_override_font_sizes/font_size = 32
+text = "< back to menu"
+flat = true
+
+[node name="winmusic" type="AudioStreamPlayer" parent="." unique_id=1118262617]
+
+[connection signal="pressed" from="backtomenu" to="." method="_on_backtomenu_pressed"]
