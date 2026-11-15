@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 			Game.STAMINA += 0.25
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Game.STAMINA >= 0.5:
-		Engine.time_scale = 0.2
+		Engine.time_scale = Game.FOCUS
 		Game.player_state = "focus"
 	if Game.player_state == "focus" and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		Engine.time_scale = 1

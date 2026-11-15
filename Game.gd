@@ -7,7 +7,9 @@ var SPEED := 3.2
 var RANGE := 260
 var ATK_POWER := 1
 var RESILIENCE := 2.0
-var HEALTH := 10:
+var FOCUS = 0.4
+var FRICTION = 0.7
+var HEALTH := 100:
 	set(value):
 		if value <= 0:
 			await get_tree().create_timer(0.2).timeout
@@ -15,7 +17,8 @@ var HEALTH := 10:
 var MAX_HEALTH = 100
 var STAMINA := 1.0
 var DAMAGE_RECEIVE = 0
-var level = 0
+var Coins = 0
+var level = 1
 var upgrade_cards = [
 	"GlassBullet",
 	"ChainReaction",
@@ -43,17 +46,15 @@ git push
 """
 
 func _ready() -> void:
-	#FULLRESET()
-	level = 1
+	FULLRESET()
 
 func lose_health(damage):
 	Sfx.play_sound("Hurt")
+	print(HEALTH)
 	HEALTH -= damage
 	if "Parry" in picked_upgrades:
 		STAMINA += 0.5
 		STAMINA = min(1, STAMINA)
-	if HEALTH <= 0:
-		print("GAMEOVER")
 		
 func hit_stop(time):
 	get_tree().paused = true
@@ -74,7 +75,8 @@ func FULLRESET():
 	"Shockwave",
 	"Stopwatch",]
 	picked_upgrades.clear()
-	level = 0
+	HEALTH = MAX_HEALTH
+	level = 1
 
 func reset_slot_machine():
 	slot_machine_cards = upgrade_cards

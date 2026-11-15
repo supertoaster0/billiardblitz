@@ -1,25 +1,29 @@
 [gd_scene format=3 uid="uid://binfkt8mrf081"]
 
-[ext_resource type="Texture2D" path="res://Assets/bg_assets/barshop.png" id="1_45o78"]
+[ext_resource type="Script" uid="uid://dgrybnhr86lue" path="res://Levels/bar.gd" id="1_jmhyh"]
 [ext_resource type="Texture2D" uid="uid://bthlwjug5dqln" path="res://Assets/drink_assets/bloodymary.png" id="2_jmhyh"]
-[ext_resource type="Texture2D" path="res://Assets/drink_assets/champagne.png" id="3_mb870"]
-[ext_resource type="Texture2D" path="res://Assets/drink_assets/cider.png" id="4_1j7q0"]
-[ext_resource type="Texture2D" path="res://Assets/drink_assets/grasshopper.png" id="5_ay44c"]
+[ext_resource type="Texture2D" uid="uid://d38ao81kyhoe4" path="res://Assets/drink_assets/barshop.png" id="2_mb870"]
+[ext_resource type="Texture2D" uid="uid://ceqsuau7ss7ld" path="res://Assets/drink_assets/champagne.png" id="3_mb870"]
+[ext_resource type="Texture2D" uid="uid://x4rwr6srx4yp" path="res://Assets/drink_assets/cider.png" id="4_1j7q0"]
+[ext_resource type="Texture2D" uid="uid://btq487yap1gm5" path="res://Assets/drink_assets/grasshopper.png" id="5_ay44c"]
 [ext_resource type="Texture2D" uid="uid://nguvq63c77e4" path="res://Assets/drink_assets/martini.png" id="6_cpdqu"]
-[ext_resource type="Texture2D" path="res://Assets/drink_assets/pinacolada.png" id="7_s766a"]
+[ext_resource type="Texture2D" uid="uid://c3et62g7uwmy2" path="res://Assets/drink_assets/pinacolada.png" id="7_s766a"]
+[ext_resource type="FontFile" uid="uid://dbwlkmglgxbsx" path="res://Assets/dogicapixel.ttf" id="9_mb870"]
 
 [sub_resource type="Theme" id="Theme_dtook"]
 
 [node name="Bar" type="Node2D" unique_id=264526816]
+script = ExtResource("1_jmhyh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1768319540]
 position = Vector2(640, 360)
 scale = Vector2(4.5714283, 4.285714)
-texture = ExtResource("1_45o78")
+texture = ExtResource("2_mb870")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=375249056]
+offset_left = 65.0
 offset_top = 424.0
-offset_right = 640.0
+offset_right = 606.5
 offset_bottom = 568.0
 scale = Vector2(2, 2)
 size_flags_vertical = 8
@@ -48,3 +52,28 @@ texture_normal = ExtResource("6_cpdqu")
 [node name="Pina Colada" type="TextureButton" parent="HBoxContainer" unique_id=449056782]
 layout_mode = 2
 texture_normal = ExtResource("7_s766a")
+
+[node name="Title" type="Label" parent="." unique_id=15560416]
+offset_left = 181.0
+offset_top = 214.0
+offset_right = 427.0
+offset_bottom = 239.0
+theme_override_fonts/font = ExtResource("9_mb870")
+theme_override_font_sizes/font_size = 28
+text = "Bloody Mary"
+
+[node name="Title2" type="Label" parent="." unique_id=7536705]
+offset_left = 181.0
+offset_top = 259.0
+offset_right = 743.0
+offset_bottom = 412.0
+theme_override_fonts/font = ExtResource("9_mb870")
+theme_override_font_sizes/font_size = 28
+text = "+1 ATK"
+
+[connection signal="pressed" from="HBoxContainer/Bloody Mary" to="." method="_on_bloody_mary_pressed"]
+[connection signal="pressed" from="HBoxContainer/Champagne" to="." method="_on_champagne_pressed"]
+[connection signal="pressed" from="HBoxContainer/Cider" to="." method="_on_cider_pressed"]
+[connection signal="pressed" from="HBoxContainer/Grasshopper" to="." method="_on_grasshopper_pressed"]
+[connection signal="pressed" from="HBoxContainer/Martini" to="." method="_on_martini_pressed"]
+[connection signal="pressed" from="HBoxContainer/Pina Colada" to="." method="_on_pina_colada_pressed"]
