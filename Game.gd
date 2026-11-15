@@ -9,11 +9,7 @@ var ATK_POWER := 1
 var RESILIENCE := 2.0
 var FOCUS = 0.4
 var FRICTION = 0.7
-var HEALTH := 100:
-	set(value):
-		if value <= 0:
-			await get_tree().create_timer(0.2).timeout
-			get_tree().change_scene_to_file("res://Scenes/ui_scenes/gameover.tscn")
+var HEALTH := 100
 var MAX_HEALTH = 100
 var STAMINA := 1.0
 var DAMAGE_RECEIVE = 0
@@ -25,8 +21,8 @@ var upgrade_cards = [
 	"HelpingHand",
 	"Oracle",
 	"Parry",
-	"Shockwave",
-	"Stopwatch",
+	#"Shockwave",
+	#"Stopwatch",
 ]
 var slot_machine_cards = [
 	"GlassBullet",
@@ -34,14 +30,14 @@ var slot_machine_cards = [
 	"HelpingHand",
 	"Oracle",
 	"Parry",
-	"Shockwave",
-	"Stopwatch",
+	#"Shockwave",
+#"Stopwatch",
 ]
 var picked_upgrades = []
 
 """
 git add .
-git commit -m "Commit name"
+git commit -m "tung"
 git push
 """
 
@@ -49,12 +45,18 @@ func _ready() -> void:
 	FULLRESET()
 
 func lose_health(damage):
+	print(damage)
 	Sfx.play_sound("Hurt")
-	print(HEALTH)
 	HEALTH -= damage
+
+	print(HEALTH)
 	if "Parry" in picked_upgrades:
 		STAMINA += 0.5
 		STAMINA = min(1, STAMINA)
+	
+	if HEALTH <= 0:
+		await get_tree().create_timer(0.2).timeout
+		get_tree().change_scene_to_file("res://Scenes/ui_scenes/gameover.tscn")
 		
 func hit_stop(time):
 	get_tree().paused = true
@@ -72,8 +74,9 @@ func FULLRESET():
 	"HelpingHand",
 	"Oracle",
 	"Parry",
-	"Shockwave",
-	"Stopwatch",]
+	#"Shockwave",
+	#"Stopwatch",
+]
 	picked_upgrades.clear()
 	HEALTH = MAX_HEALTH
 	level = 1
