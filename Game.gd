@@ -37,7 +37,7 @@ var picked_upgrades = []
 
 """
 git add .
-git commit -m "Shop finally working"
+git commit -m "TUNG TUNG TUNG SAHUR"
 git push
 """
 

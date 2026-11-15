@@ -34,7 +34,7 @@ func _on_spawn_timer_timeout() -> void:
 	elif order[number] == "K":
 		spawn_8ball()
 	number += 1
-	if number < 1:
+	if number < 6:
 		reset_timer()
 
 func _process(delta: float) -> void:
