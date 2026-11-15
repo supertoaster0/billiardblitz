@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://vmxshuwstwd8"]
 
 [ext_resource type="Script" uid="uid://dv4hat2ib73g4" path="res://Levels/level_3.gd" id="1_vr4rd"]
-[ext_resource type="PackedScene" uid="uid://b30gw5wlmjd5a" path="res://Levels/level4.tscn" id="2_ltsrt"]
 [ext_resource type="Texture2D" uid="uid://bw78ust5fwprd" path="res://Assets/bg_assets/redpooltable.png" id="2_vr4rd"]
 [ext_resource type="PackedScene" uid="uid://8p7jecejhyag" path="res://Scenes/player_scenes/player.tscn" id="3_ltsrt"]
 [ext_resource type="Script" uid="uid://brqtt3m7f865t" path="res://trigger.gd" id="4_2jaon"]
@@ -84,7 +83,6 @@ _data = {
 [node name="Main" type="Node2D" unique_id=1754576298]
 y_sort_enabled = true
 script = ExtResource("1_vr4rd")
-TargetScene = ExtResource("2_ltsrt")
 metadata/_edit_horizontal_guides_ = [85.0, 85.0, 657.0]
 metadata/_edit_vertical_guides_ = [148.0, 1133.0]
 

@@ -1,12 +1,17 @@
 extends Node
 
+var target_scene: PackedScene
 var player_state = "idle"
 var focus_point : Vector2
 var SPEED := 3.2
 var RANGE := 260
 var ATK_POWER := 1
 var RESILIENCE := 2.0
-var HEALTH := 100
+var HEALTH := 10:
+	set(value):
+		if value <= 0:
+			await get_tree().create_timer(0.2).timeout
+			get_tree().change_scene_to_file("res://Scenes/ui_scenes/gameover.tscn")
 var MAX_HEALTH = 100
 var STAMINA := 1.0
 var DAMAGE_RECEIVE = 0

@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var TargetScene : PackedScene
 var green = preload("res://Scenes/enemy_scenes/green_ball.tscn")
 var blue = preload("res://Scenes/enemy_scenes/blue_ball.tscn")
 var red = preload("res://Scenes/enemy_scenes/red_ball.tscn")
@@ -39,7 +38,7 @@ func _process(delta: float) -> void:
 	if dead_enemies >= 6:
 		$Victory.show()
 		if Input.is_action_just_pressed("enter"):
-			get_tree().change_scene_to_packed(TargetScene)
+			get_tree().change_scene_to_file("res://Levels/shop.tscn")
 
 func spawn_red():
 	var target = red.instantiate()

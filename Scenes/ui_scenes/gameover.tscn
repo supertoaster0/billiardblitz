@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://d37mshm77owcw"]
+
+[ext_resource type="Script" uid="uid://bo6aj88p2058m" path="res://gameover.gd" id="1_ydnxx"]
+[ext_resource type="Texture2D" uid="uid://6fms4qfsc8wk" path="res://Assets/bg_assets/pooltable.png" id="2_xjbtu"]
+[ext_resource type="Texture2D" uid="uid://bj2k8dqnxwy4i" path="res://Assets/player_assets/deadplayer.png" id="3_krejq"]
+[ext_resource type="FontFile" uid="uid://b7i0luhsfknpb" path="res://Assets/PixelOperator8-Bold.ttf" id="4_5bawo"]
+[ext_resource type="FontFile" uid="uid://dv2pscrosiun4" path="res://Assets/PixelOperator8.ttf" id="5_320mr"]
+
+[node name="gameover" type="Control" unique_id=354045961]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ydnxx")
+
+[node name="bg" type="TextureRect" parent="." unique_id=210719325]
+modulate = Color(1.7843117, 0.3585957, 0.283558, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xjbtu")
+
+[node name="player" type="TextureRect" parent="." unique_id=2034173836]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 284.0
+offset_right = 1090.5824
+offset_bottom = 593.0
+texture = ExtResource("3_krejq")
+
+[node name="gameover" type="Label" parent="." unique_id=1582529942]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 182.0
+offset_right = 687.0
+offset_bottom = 533.0
+theme_override_fonts/font = ExtResource("4_5bawo")
+theme_override_font_sizes/font_size = 128
+text = "GAME
+OVER"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Button" type="Button" parent="." unique_id=1521725304]
+layout_mode = 0
+offset_left = 767.0
+offset_top = 202.0
+offset_right = 1127.0
+offset_bottom = 246.0
+theme_override_fonts/font = ExtResource("5_320mr")
+theme_override_font_sizes/font_size = 32
+text = "< back to menu"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
