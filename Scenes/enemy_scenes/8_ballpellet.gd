@@ -19,5 +19,5 @@ func _on_timer_timeout() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.TOKEN_ID == "Player":
-		Game.lose_health(10)
+		Game.lose_health(10 + Game.DAMAGE_RECEIVE)
 		queue_free()

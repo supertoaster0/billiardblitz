@@ -9,6 +9,27 @@ var RESILIENCE := 2.0
 var HEALTH := 100
 var MAX_HEALTH = 100
 var STAMINA := 1.0
+var DAMAGE_RECEIVE = 0
+var level = 0
+var upgrade_cards = [
+	"GlassBullet",
+	"ChainReaction",
+	"HelpingHand",
+	"Oracle",
+	"Parry",
+	"Shockwave",
+	"Stopwatch",
+]
+var slot_machine_cards = [
+	"GlassBullet",
+	"ChainReaction",
+	"HelpingHand",
+	"Oracle",
+	"Parry",
+	"Shockwave",
+	"Stopwatch",
+]
+var picked_upgrades = []
 
 """
 git add .
@@ -30,3 +51,31 @@ func hit_stop(time):
 func RESET():
 	HEALTH = MAX_HEALTH
 	STAMINA = 1.0
+
+func FULLRESET():
+	upgrade_cards = [
+	"GlassBullet",
+	"ChainReaction",
+	"HelpingHand",
+	"Oracle",
+	"Parry",
+	"Shockwave",
+	"Stopwatch",]
+	picked_upgrades.clear()
+	level = 0
+
+func reset_slot_machine():
+	slot_machine_cards = upgrade_cards
+
+func next_level():
+	level += 1
+	if level == 1:
+		get_tree().change_scene_to_file("res://Levels/level1.tscn")
+	if level == 2:
+		get_tree().change_scene_to_file("res://Levels/level2.tscn")
+	if level == 3:
+		get_tree().change_scene_to_file("res://Levels/level3.tscn")
+	if level == 4:
+		get_tree().change_scene_to_file("res://Levels/level4.tscn")
+	if level == 5:
+		get_tree().change_scene_to_file("res://Levels/level5.tscn")

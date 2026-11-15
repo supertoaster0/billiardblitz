@@ -4,8 +4,12 @@ const TOKEN_ID = "Player"
 var stamina_timer := 0.0
 var slowed = false
 
+func _ready() -> void:
+	if "GlassBullet" in Game.picked_upgrades:
+		Game.ATK_POWER = max(Game.ATK_POWER, 2)
+		Game.DAMAGE_RECEIVE = max(Game.ATK_POWER, 10)
+
 func _process(delta: float) -> void:
-	
 	if Game.STAMINA < 1.0:
 		stamina_timer += delta
 		if stamina_timer >= 1.0 and Game.player_state != "focus":

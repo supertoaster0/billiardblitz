@@ -9,6 +9,7 @@ var red = preload("res://Scenes/enemy_scenes/red_ball.tscn")
 @onready var loop: AudioStreamPlayer = $loop
 var order = ["R", "B", "B", "G", "G", "G"]
 var number := 0.0
+var shop_done = 0
 var dead_enemies := 0
 
 # Called when the node enters the scene tree for the first time.
@@ -29,11 +30,14 @@ func _on_spawn_timer_timeout() -> void:
 	elif order[number] == "B":
 		spawn_blue()
 	number += 1
-	if number < 6:
+	if number < 2:
 		reset_timer()
 
 func _process(delta: float) -> void:
-	if dead_enemies >= 6:
+	if dead_enemies >= 2 and shop_done == 0:
+		
+		shop_done += 1
+	if dead_enemies >= 2 and shop_done == 2:
 		$Victory.show()
 		if Input.is_action_just_pressed("enter"):
 			get_tree().change_scene_to_packed(TargetScene)
@@ -58,7 +62,7 @@ func spawn_green():
 
 func reset_timer():
 	$SpawnTimer.start()
-	$SpawnTimer.wait_time = randf_range(11, 15)
+	$SpawnTimer.wait_time = randf_range(6, 13)
 
 
 func _on_loop_finished() -> void:

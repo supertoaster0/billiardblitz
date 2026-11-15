@@ -8,6 +8,7 @@ var can_get_hit = true
 var Health = 2
 
 func _ready() -> void:
+	$CollisionShape2D
 	var tween = get_tree().create_tween()
 	$Graphic.position.y = -position.y - 120
 	tween.tween_property($Graphic, "position", Vector2(0, 0), 1.8).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
@@ -32,7 +33,7 @@ func _process(delta: float) -> void:
 		
 func _on_body_entered(body: Node) -> void:
 	if body.TOKEN_ID == "Player" and state != "ram" and body.linear_velocity.length() > 200 and can_get_hit:
-		lose_health(1)
+		lose_health(Game.ATK_POWER)
 		Game.hit_stop(0.1)
 		
 	if state == "ram":
@@ -42,7 +43,7 @@ func _on_body_entered(body: Node) -> void:
 		$RushTimer.stop()
 		state = "idle"
 		if body.TOKEN_ID == "Player":
-			Game.lose_health(30)
+			Game.lose_health(30 + Game.DAMAGE_RECEIVE)
 		$IdleTimer.start()
 		
 
