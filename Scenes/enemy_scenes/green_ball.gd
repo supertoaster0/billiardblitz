@@ -22,7 +22,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.TOKEN_ID == "Player":
 		lose_health(Game.ATK_POWER)
 		Game.hit_stop(0.1)
-	elif body.TOKEN_ID == "Enemy":
+	elif body.TOKEN_ID == "Enemy" and not "ChainReaction" in Game.picked_upgrades:
 		Sfx.play_sound("Heal")
 		body.Health += 1
 		Sfx.play_sound("Hit")

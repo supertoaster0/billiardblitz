@@ -24,6 +24,8 @@ func _on_body_entered(body: Node) -> void:
 	if body.TOKEN_ID == "Player":
 		lose_health(1)
 		Game.hit_stop(0.1)
+	if body.TOKEN_ID == "Enemy" and "ChainReaction" in Game.picked_upgrades:
+		body.lose_health(1)
 	print(body.TOKEN_ID)
 
 func _on_body_exited(body: Node) -> void:

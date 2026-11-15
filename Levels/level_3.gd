@@ -10,6 +10,8 @@ var eight_ball = preload("res://Scenes/enemy_scenes/8_ball.tscn")
 var order = ["R", "B", "B", "G", "G", "K"]
 var number := 0.0
 var dead_enemies := 0
+var heart_timer := 0.0
+var heart = preload("res://Scenes/hazard_scenes/heart.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +37,11 @@ func _on_spawn_timer_timeout() -> void:
 		reset_timer()
 
 func _process(delta: float) -> void:
+	if "HelpingHand" in Game.picked_upgrades:
+		heart_timer += delta
+	if heart_timer >= 6:
+		heart_timer = 0.0
+		spawn_heart()
 	if dead_enemies >= 6:
 		$Victory.show()
 		if Input.is_action_just_pressed("enter"):
@@ -68,6 +75,10 @@ func reset_timer():
 	$SpawnTimer.start()
 	$SpawnTimer.wait_time = randf_range(5, 12)
 
+func spawn_heart():
+	var target = heart.instantiate()
+	target.position = Vector2(randi_range(240, 1000), randi_range(140, 580))
+	add_child(target)
 
 func _on_loop_finished() -> void:
 	$loop.play()
