@@ -14,6 +14,7 @@ var dead_enemies := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Game.level = 2
 	Game.RESET()
 	$Victory.hide()
 	order.shuffle()

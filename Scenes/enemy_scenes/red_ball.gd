@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 		var delta_x = cos(deg_to_rad(direction))
 		var delta_y = sin(deg_to_rad(direction))
 
-		position.x -= delta_x * 70 * delta
-		position.y -= delta_y * 70 * delta
+		linear_velocity.x = -delta_x * 70
+		linear_velocity.y = -delta_y * 70
 		
 func _on_body_entered(body: Node) -> void:
 	if body.TOKEN_ID == "Player" and state != "ram" and body.linear_velocity.length() > 200 and can_get_hit:

@@ -8,7 +8,9 @@ var slot_stop
 func draw_card(index):
 	var card = upgradecard.instantiate()
 	card.position = Vector2(640-300 + index*300, 1000)
+	print(Game.slot_machine_cards, Game.upgrade_cards)
 	var random = Game.slot_machine_cards.pick_random()
+	print(random)
 	Game.slot_machine_cards.erase(random)
 	card.title = random
 	card.index = index
@@ -48,6 +50,7 @@ func _on_timer_timeout() -> void:
 
 func _on_initial_timer_timeout() -> void:
 	reached_rank = 0
+	Game.reset_slot_machine()
 	for i in 3:
 		draw_card(i)
 	$Timer.start()

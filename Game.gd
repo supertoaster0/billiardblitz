@@ -82,7 +82,7 @@ func FULLRESET():
 	level = 1
 
 func reset_slot_machine():
-	slot_machine_cards = upgrade_cards
+	slot_machine_cards = upgrade_cards.duplicate()
 
 func next_level():
 	level += 1

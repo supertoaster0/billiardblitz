@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 			Sfx.play_sound("Upgrade")
 			Game.picked_upgrades.append(title)
 			Game.upgrade_cards.erase(title)
+			print(Game.upgrade_cards)
+			print(Game.slot_machine_cards)
 			Game.next_level()
 	else:
 		$Sprite2D.scale = Vector2(1, 1)
