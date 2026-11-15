@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://brqtt3m7f865t" path="res://trigger.gd" id="4_2jaon"]
 [ext_resource type="PackedScene" uid="uid://bgrbe7fvuhial" path="res://Scenes/ui_scenes/ui.tscn" id="5_2cw1i"]
 [ext_resource type="PackedScene" uid="uid://dkrmwpvyvqdkh" path="res://Scenes/hazard_scenes/beer_puddle.tscn" id="5_eex2w"]
+[ext_resource type="FontFile" uid="uid://dbwlkmglgxbsx" path="res://Assets/dogicapixel.ttf" id="8_2jaon"]
+[ext_resource type="FontFile" uid="uid://bajtnohlm627e" path="res://Assets/determination.ttf" id="9_0ywmm"]
+[ext_resource type="Script" uid="uid://bmk15un3jisil" path="res://Levels/levelindicator.gd" id="10_k0lmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awwja"]
 size = Vector2(1280, 30)
@@ -25,6 +28,58 @@ data = PackedByteArray("cW9hZgARC6ICALuAFAAQKAAAAAAAAAAAAAAAAOAAQAAAAAAAAAAAAAAA
 format = 3
 mix_rate = 48000
 stereo = true
+
+[sub_resource type="Animation" id="Animation_nq5j5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_utqd4"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u55on"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ls4d1"]
+_data = {
+&"RESET": SubResource("Animation_nq5j5"),
+&"fade_out": SubResource("Animation_utqd4"),
+&"fadein": SubResource("Animation_u55on")
+}
 
 [node name="Main" type="Node2D" unique_id=1754576298]
 y_sort_enabled = true
@@ -87,16 +142,41 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Victory" type="Label" parent="." unique_id=1962655880]
+[node name="Victory" type="Label" parent="." unique_id=2086577913]
 offset_left = 287.0
-offset_top = 100.0
+offset_top = 117.0
 offset_right = 1003.0
-offset_bottom = 188.0
+offset_bottom = 205.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "END OF LEVEL 3
+theme_override_fonts/font = ExtResource("8_2jaon")
+text = "END OF LEVEL 1
+
 [enter] to proceed"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="levelindicator" type="Label" parent="." unique_id=1121922417]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 516.0
+offset_top = 133.0
+offset_right = 780.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("9_0ywmm")
+theme_override_font_sizes/font_size = 64
+text = "LEVEL 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_k0lmg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="levelindicator" unique_id=800755706]
+libraries/ = SubResource("AnimationLibrary_ls4d1")
 
 [connection signal="finished" from="intro" to="." method="_on_intro_finished"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
